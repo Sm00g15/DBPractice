@@ -12,9 +12,9 @@ const UserSchema = new mongoose.Schema({
 	},
 	posts: [PostSchema]
 })
-
+// this refers to instance of model that we're working on!
 UserSchema.virtual('postCount').get(function() {
-	
+	return this.posts.length;
 });
 
 const User = mongoose.model('user', UserSchema);
