@@ -10,7 +10,8 @@ const UserSchema = new mongoose.Schema({
 		},
 		required: [true, 'Name is required.']	
 	},
-	posts: [PostSchema]
+	posts: [PostSchema],
+	likes: Number 
 })
 // this refers to instance of model that we're working on!
 UserSchema.virtual('postCount').get(function() {
