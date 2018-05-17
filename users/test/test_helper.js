@@ -12,8 +12,15 @@ before(() => {
 
 // Hook that runs before each iteration of tests
 beforeEach((done) => {
-	mongoose.connection.collections.users.drop(() => {
-		// Ready to run the next test!
-		done();
-	});
+	const { users, comments, blogPosts } = mongoose.connection.collections;
+		beforeEach((done) => {
+			users.drop(() => {
+				comments.drop(() => {
+					blogposts.drop(() => {
+			// Ready to run the next test!
+						done();
+					});
+				})			
+			})
+		})
 })
